@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #Carregar documentos
-loader = CSVLoader(file_path='ResourceCosts.csv', encoding='utf-8')
+loader = CSVLoader(file_path='nomedoarquivo.csv', encoding='utf-8')
 documents = loader.load()
 
 #Criar embeddings
@@ -38,10 +38,6 @@ prompt = PromptTemplate(
     input_variables=["message", "table"],
     template=template
 )
-
-#llm = OpenAI()
-#chain = prompt | llm
-
 llm = ChatOpenAI()
 chain = prompt | llm
 
